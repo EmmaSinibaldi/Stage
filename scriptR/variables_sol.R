@@ -16,15 +16,15 @@ library(openxlsx)
 
 
 
-layer_1 <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_layer_1_modif.xlsx")
+layer_1 <- read_excel("data/Soil_layer_1_modif.xlsx")
 layer_1 <- layer_1[,1:5]
-layer_2 <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_layer_2_modif.xlsx")
+layer_2 <- read_excel("data/Soil_layer_2_modif.xlsx")
 layer_2 <- layer_2[,1:5]
-layer_3 <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_layer_3_modif.xlsx")
+layer_3 <- read_excel("data/Soil_layer_3_modif.xlsx")
 layer_3 <- layer_3[,1:5]
-layer_4 <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_layer_4_modif.xlsx")
+layer_4 <- read_excel("data/Soil_layer_4_modif.xlsx")
 layer_4 <- layer_3[,1:5]
-layer_5 <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_layer_5_modif.xlsx")
+layer_5 <- read_excel("data/Soil_layer_5_modif.xlsx")
 layer_5 <- layer_3[,1:5]
 
 
@@ -91,7 +91,7 @@ PAWC <- df_PAWC[c(1,7)]
 
 # Total organic N dans le sol (norg)
 
-soils <- read_excel("C:/Users/sinibaldi/Desktop/stage/modif/Soil_characteristics_modif.xlsx") 
+soils <- read_excel("data/Soil_characteristics_modif.xlsx") 
 soils_norg <- soils[c(1,3)]
 
 
@@ -106,10 +106,10 @@ soils_var <- merge.data.frame(PAWC, soils_norg, by="soil")
 
 #### save as excel ####
 
-write.xlsx(PAWC, file="C:/Users/sinibaldi/Desktop/stage/dataframes/PAWC.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
-write.xlsx(soils_norg, file="C:/Users/sinibaldi/Desktop/stage/dataframes/Norg.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
-write.xlsx(soils_var, file="C:/Users/sinibaldi/Desktop/stage/dataframes/soils_var.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
+# write.xlsx(PAWC, file="C:/Users/sinibaldi/Desktop/stage/dataframes/PAWC.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
+# write.xlsx(soils_norg, file="C:/Users/sinibaldi/Desktop/stage/dataframes/Norg.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
+# write.xlsx(soils_var, file="C:/Users/sinibaldi/Desktop/stage/dataframes/soils_var.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
 
