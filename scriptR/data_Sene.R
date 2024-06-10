@@ -36,10 +36,8 @@ library(rio)
 
 
 
-data_sans_climat <- read_excel("C:/Users/sinibaldi/Desktop/stage/dataframes/data_sans_climat.xlsx")
-
-
-
+data_sans_climat <- read_excel("data/data_sans_climat.xlsx")
+data_sans_climat[, 6:12] <- lapply(data_sans_climat[, 6:12], as.numeric)
 
 
 
@@ -50,8 +48,8 @@ data_Sene <- subset(data_sans_climat, Site == 'Senegal')
 
 # liste avec l'ensemble des données climatiques du Senegal sur les 20 années
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Senegal_Bambey")
-climat_Senegal <- lapply(2000:2019, function(year) read.table(paste0("climatbambey.", year)))
+
+climat_Senegal <- lapply(2000:2019, function(year) read.table(paste0("data/Senegal_Bambey/climatbambey.", year)))
 
 
 
@@ -883,9 +881,9 @@ for (i in seq_along(data_Sene$Cropping_situation)){
 
 #### data final ####
 
-
-data_Sene <- cbind(data_Sene, tot_rainfall, veg_rainfall, rep_rainfall, critical_rainfall,
-                  nb_days_60, nb_days_0, max_days_0)
+# 
+# data_Sene <- cbind(data_Sene, tot_rainfall, veg_rainfall, rep_rainfall, critical_rainfall,
+#                   nb_days_60, nb_days_0, max_days_0)
 
 
 
@@ -894,7 +892,7 @@ data_Sene <- cbind(data_Sene, tot_rainfall, veg_rainfall, rep_rainfall, critical
 #### save as excel ####
 
 
-write.xlsx(data_Sene, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Sene.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
+# write.xlsx(data_Sene, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Sene.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
 
 

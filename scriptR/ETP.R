@@ -37,15 +37,14 @@ library(rio)
 #### Burkina ####
 
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Burkina_Saria")
-liste_climat_Burkina <- lapply(2000:2019, function(year) read.table(paste0("Saria.", year)))
+liste_climat_Burkina <- lapply(2000:2019, function(year) read.table(paste0("data/Burkina_Saria/Saria.", year)))
 climat_Burkina <- do.call(rbind, liste_climat_Burkina)
 names(climat_Burkina) = c("name_of_weather_file", "year", "month", "day_in_month", "Julian_day","minimum_temperature",
                           "maximum_temperature", "global_radiation", "Penman_PET",
                           "rainfall", "wind","vapour_pressure","CO2_content")
 
 
-HR_Burkina <- read.csv("C:/Users/sinibaldi/Desktop/stage/dataframes/BurkinaHR.CSV", sep=";")
+HR_Burkina <- read.csv("data/Burkina_Saria/BurkinaHR.CSV", sep=";")
 HR_Burkina <- HR_Burkina[-(1:10),]
 names(HR_Burkina) <- c('Year', 'MO', 'DY', 'HR')
 
@@ -192,8 +191,7 @@ rm(list =ls())
 #### Mali ####
 
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Mali_Ntarla")
-liste_climat_Mali <- lapply(1991:2010, function(year) read.table(paste0("Ntarla.", year)))
+liste_climat_Mali <- lapply(1991:2010, function(year) read.table(paste0("data/Mali_Ntarla/Ntarla.", year)))
 liste_climat_Mali[[12]] <- (liste_climat_Mali[[12]])[1:364,] # pb annee 2002
 climat_Mali <- do.call(rbind, liste_climat_Mali)
 names(climat_Mali) = c("name_of_weather_file", "year", "month", "day_in_month", "Julian_day","minimum_temperature",
@@ -201,7 +199,7 @@ names(climat_Mali) = c("name_of_weather_file", "year", "month", "day_in_month", 
                        "rainfall", "wind","vapour_pressure","CO2_content")
 
 
-HR_Mali <- read.csv("C:/Users/sinibaldi/Desktop/stage/dataframes/MaliHR.CSV", sep=";")
+HR_Mali <- read.csv("data/Mali_Ntarla/MaliHR.CSV", sep=";")
 HR_Mali <- HR_Mali[-(1:10),]
 names(HR_Mali) <- c('Year', 'MO', 'DY', 'HR')
 
@@ -354,15 +352,14 @@ rm(list =ls())
 #### Senegal ####
 
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Senegal_Bambey")
-liste_climat_Senegal <- lapply(2000:2019, function(year) read.table(paste0("climatbambey.", year)))
+liste_climat_Senegal <- lapply(2000:2019, function(year) read.table(paste0("data/Senegal_Bambey/climatbambey.", year)))
 climat_Senegal <- do.call(rbind, liste_climat_Senegal)
 names(climat_Senegal) = c("name_of_weather_file", "year", "month", "day_in_month", "Julian_day","minimum_temperature",
                           "maximum_temperature", "global_radiation", "Penman_PET",
                           "rainfall", "wind","vapour_pressure","CO2_content")
 
 
-HR_Senegal <- read.csv("C:/Users/sinibaldi/Desktop/stage/dataframes/SeneHR.csv", sep=";")
+HR_Senegal <- read.csv("data/Senegal_Bambey/SeneHR.csv", sep=";")
 HR_Senegal <- HR_Senegal[-(1:10),]
 names(HR_Senegal) <- c('Year', 'MO', 'DY', 'HR')
 

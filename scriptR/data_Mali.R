@@ -36,8 +36,8 @@ library(rio)
 
 
 
-data_sans_climat <- read_excel("C:/Users/sinibaldi/Desktop/stage/dataframes/data_sans_climat.xlsx")
-
+data_sans_climat <- read_excel("data/data_sans_climat.xlsx")
+data_sans_climat[, 6:12] <- lapply(data_sans_climat[, 6:12], as.numeric)
 
 
 
@@ -50,8 +50,7 @@ data_Mali <- subset(data_sans_climat, Site == 'Mali')
 
 # liste avec l'ensemble des données climatiques du Mali sur les 20 années
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Mali_Ntarla")
-climat_Mali <- lapply(1991:2010, function(year) read.table(paste0("ntarla.", year)))
+climat_Mali <- lapply(1991:2010, function(year) read.table(paste0("data/Mali_Ntarla/ntarla.", year)))
 
 #pb climat 2002
 climat_Mali[[12]] <- (climat_Mali[[12]])[1:364,]
@@ -877,8 +876,8 @@ for (i in seq_along(data_Mali$Cropping_situation)){
 #### data final ####
 
 
-data_Mali <- cbind(data_Mali, tot_rainfall, veg_rainfall, rep_rainfall, critical_rainfall,
-                            nb_days_60, nb_days_0, max_days_0)
+# data_Mali <- cbind(data_Mali, tot_rainfall, veg_rainfall, rep_rainfall, critical_rainfall,
+#                             nb_days_60, nb_days_0, max_days_0)
 
 
 
@@ -887,7 +886,7 @@ data_Mali <- cbind(data_Mali, tot_rainfall, veg_rainfall, rep_rainfall, critical
 #### save as excel ####
 
 
-write.xlsx(data_Mali, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Mali.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
+# write.xlsx(data_Mali, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Mali.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
 
 

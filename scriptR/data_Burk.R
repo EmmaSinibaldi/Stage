@@ -36,8 +36,8 @@ library(rio)
 
 
 
-data_sans_climat <- read_excel("C:/Users/sinibaldi/Desktop/stage/dataframes/data_sans_climat.xlsx")
-
+data_sans_climat <- read_excel("data/data_sans_climat.xlsx")
+data_sans_climat[, 6:12] <- lapply(data_sans_climat[, 6:12], as.numeric)
 
 
 
@@ -50,8 +50,8 @@ data_Burk <- subset(data_sans_climat, Site == 'Burkina')
 
 # liste avec l'ensemble des données climatiques du Burkina pour chacune des 20 années
 
-setwd("C:/Users/sinibaldi/Desktop/stage/Entrees-Sorties_stageMathilde/0-data-Simulation_plan/Burkina_Saria")
-climat_Burkina <- lapply(2000:2019, function(year) read.table(paste0("Saria.", year)))
+
+climat_Burkina <- lapply(2000:2019, function(year) read.table(paste0("data/Burkina_Saria/Saria.", year)))
 
 
 
@@ -885,9 +885,9 @@ data_Burk <- cbind(data_Burk, tot_rainfall, veg_rainfall, rep_rainfall, critical
 
 #### save as excel ####
 
-
-write.xlsx(data_Burk, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Burk.xlsx", sheetName = "general",
-           colNames = TRUE, rowNames = FALSE, append= TRUE)
+# 
+# write.xlsx(data_Burk, file="C:/Users/sinibaldi/Desktop/stage/dataframes/data_Burk.xlsx", sheetName = "general",
+#            colNames = TRUE, rowNames = FALSE, append= TRUE)
 
 
 
